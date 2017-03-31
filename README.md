@@ -24,11 +24,11 @@ pod 'SwiftValidatorsReactiveExtensions'
 
 `ValidationError` is an enum that conform to `Swift.Error` and provides cases for all available validators in `SwiftValidators` and a special case `.notSpecified` for when the error is not specified.
 
-````
+```swift
 Validator.reactive.isEmail().apply("gkaimakas@gmail.com") // returns .valid
 
 Validator.reactive.isEmail().apply("abcd") // returns .invalid(.isEmail)
-````
+```
 
 Validation is done using the `apply` function of a `Validator`.
 You can create a `Validator` manually or you can use on of the already available via static functions in the Validator class. 
@@ -53,20 +53,20 @@ For more examples on how to call each validator you can look at the [unit tests]
 
 `ReactiveValidator` exposes the `combine` function both as a `static` function and as an `instance` function. The `combine` function is equivalent to a logical and meaning that all validators must be `.valid` for the combined validator to be `.valid`.
 
-````
+```swift
 ReactiveValidator.combine(Validator.reactive.isEmail(), Validator.reactive.isLowercase()) // variadic function
 
 ReactiveValidator.combine([Validator.reactive.isEmail(), Validator.reactive.isLowercase()]) // array arguments
 
 Validator.reactive.isEmail().combine(with: Validator.reactive.isLowercase()) // instance function
-````
+```
 
 #### Mapping
 
 `SwiftValidatorsReactiveExtensions` provide a `map` function to map the result of a `ReactiveValidator` ValidatorOutput<StringConvertible?, ValidationError> to the exact ValidatorOutput that the `ValidatingProperty` expects.
 
 
-````
+```swift
 email = ValidatingProperty<String?, ValidationError>(nil, { (value: String?) -> ValidatorOutput<String?, ValidationError> in
 return ReactiveValidator.combine([
 Validator.reactive.required(),
@@ -77,7 +77,7 @@ Validator.reactive.isEmail()
 .apply(value)
 .map() { $0 as? String }
 })
-````
+```
 
 ### Available Validators
 
