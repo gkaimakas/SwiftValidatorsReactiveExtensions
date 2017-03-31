@@ -12,14 +12,12 @@ import SwiftValidators
 
 public enum ValidationError: Error {
     case notSpecified
-    
     case contains(String)
     case equals(String)
     case exactLength(Int)
     case isASCII
     case isAfter(String, String)
     case isAlpha
-    
     case isAlphanumeric
     case isBase64
     case isBefore(String, String)
@@ -30,7 +28,6 @@ public enum ValidationError: Error {
     case isEmpty
     case isFQDN(FQDNOptions)
     case isFalse
-    
     case isFloat
     case isHexadecimal
     case isHexColor
@@ -41,7 +38,6 @@ public enum ValidationError: Error {
     case isIn([String])
     case isInt
     case isLowercase
-    
     case isMongoId
     case isNil
     case isNumeric
@@ -52,7 +48,6 @@ public enum ValidationError: Error {
     case isUppercase
     case maxLength(Int)
     case minLength(Int)
-    
     case regex(String)
     case required
 }
