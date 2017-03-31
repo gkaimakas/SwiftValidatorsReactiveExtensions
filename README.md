@@ -66,7 +66,7 @@ Validator.reactive.isEmail().combine(with: Validator.reactive.isLowercase()) // 
 `SwiftValidatorsReactiveExtensions` provide a `map` function to map the result of a `ReactiveValidator` ValidatorOutput<StringConvertible?, ValidationError> to the exact ValidatorOutput that the `ValidatingProperty` expects.
 
 
-
+````
 email = ValidatingProperty<String?, ValidationError>(nil, { (value: String?) -> ValidatorOutput<String?, ValidationError> in
 return ReactiveValidator.combine([
 Validator.reactive.required(),
@@ -77,7 +77,7 @@ Validator.reactive.isEmail()
 .apply(value)
 .map() { $0 as? String }
 })
-
+````
 
 ### Available Validators
 
