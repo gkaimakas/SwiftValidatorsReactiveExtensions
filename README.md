@@ -25,40 +25,34 @@ pod 'SwiftValidatorsReactiveExtensions'
 `ValidationError` is an enum that conform to `Swift.Error` and provides cases for all available validators in `SwiftValidators` and a special case `.notSpecified` for when the error is not specified.
 
 ```swift
-Validator.reactive.isEmail().apply("gkaimakas@gmail.com") // returns .valid
+Validator.reactive
+.isEmail().apply("gkaimakas@gmail.com") // returns .valid
 
-Validator.reactive.isEmail().apply("abcd") // returns .invalid(.isEmail)
+Validator.reactive
+.isEmail().apply("abcd") // returns .invalid(.isEmail)
 ```
 
-Validation is done using the `apply` function of a `Validator`.
-You can create a `Validator` manually or you can use on of the already available via static functions in the Validator class. 
-
-A `Validator`'s apply function accepts an input as a nullable value that conforms to the `StringConvertible` protocol. By default `String`, `NSString`, `Int`, `Float`, `Double` and `Bool` conform to `StringConvertible`.
-
-You can specify the `Validator`'s behaviour when it's input is nil if you are using the static Validator function by setting the `nilResponse` parameter to either true or false. By default nilResponse is set to false.
-
-```swift
-Validator.exactLength(3).apply("abc") //returns true
-
-Validator.exactLength(3).apply(true) //returns false (the string representation of true is 'true')
-
-Validator.exactLength(3).apply(nil) //returns false since `nilResponse` is set to false by default
-
-Valuidator.exactLength(3, nilResponse: true).apply(nil) //returns true since we set nilResponse to true
-```
-
-For more examples on how to call each validator you can look at the [unit tests](https://github.com/gkaimakas/SwiftValidators/blob/master/SwiftValidatorsTests/ValidatorSpec.swift).
+For more examples on how to call each validator you can look at the [unit tests](https://github.com/gkaimakas/SwiftValidatorsReactiveExtensions/blob/master/Example/Tests/Tests.swift).
 
 #### Logical Operators
 
 `ReactiveValidator` exposes the `combine` function both as a `static` function and as an `instance` function. The `combine` function is equivalent to a logical and meaning that all validators must be `.valid` for the combined validator to be `.valid`.
 
 ```swift
-ReactiveValidator.combine(Validator.reactive.isEmail(), Validator.reactive.isLowercase()) // variadic function
+ReactiveValidator.combine(
+Validator.reactive.isEmail(), 
+Validator.reactive.isLowercase()
+) // variadic function
 
-ReactiveValidator.combine([Validator.reactive.isEmail(), Validator.reactive.isLowercase()]) // array arguments
+ReactiveValidator
+.combine([
+Validator.reactive.isEmail(), 
+Validator.reactive.isLowercase()
+]) // array arguments
 
-Validator.reactive.isEmail().combine(with: Validator.reactive.isLowercase()) // instance function
+Validator.reactive
+.isEmail()
+.combine(with: Validator.reactive.isLowercase()) // instance function
 ```
 
 #### Mapping
