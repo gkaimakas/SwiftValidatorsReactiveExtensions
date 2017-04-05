@@ -1,6 +1,7 @@
 use_frameworks!
 
 target 'SwiftValidatorsReactiveExtensions_Example' do
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'SwiftValidatorsReactiveExtensions', :path => '../'
   pod 'ReactiveCocoa'
   pod 'ReactiveSwift'

@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130E18DD1E956AE100C64471 /* TextInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E18DC1E956AE100C64471 /* TextInputTableViewCell.swift */; };
+		130E18DF1E9576CD00C64471 /* ErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E18DE1E9576CD00C64471 /* ErrorTableViewCell.swift */; };
+		130E18E21E957D5500C64471 /* SumbitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E18E11E957D5500C64471 /* SumbitView.swift */; };
+		130E18E41E957D7D00C64471 /* SumbitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 130E18E31E957D7D00C64471 /* SumbitView.xib */; };
+		130E18E61E9585F100C64471 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E18E51E9585F100C64471 /* BorderedButton.swift */; };
+		130E18E91E9588FF00C64471 /* Reactive+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E18E81E9588FF00C64471 /* Reactive+UIButton.swift */; };
+		130E18EC1E958C8200C64471 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E18EB1E958C8200C64471 /* HeaderView.swift */; };
+		130E18EE1E958CE400C64471 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 130E18ED1E958CE400C64471 /* HeaderView.xib */; };
+		130E18F01E958DEF00C64471 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E18EF1E958DEF00C64471 /* UIImageView.swift */; };
+		138B730E1E955BF500208805 /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B730D1E955BF500208805 /* InputViewModel.swift */; };
+		138B73101E955DBE00208805 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B730F1E955DBE00208805 /* FormViewModel.swift */; };
+		138B73141E9567DC00208805 /* HintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B73131E9567DC00208805 /* HintTableViewCell.swift */; };
 		1A2630D31F1A48F37C1BA35A /* Pods_SwiftValidatorsReactiveExtensions_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 780237C6A9662FFDE029513A /* Pods_SwiftValidatorsReactiveExtensions_Tests.framework */; };
 		4D128E3E9AAA93C28B6C4F18 /* Pods_SwiftValidatorsReactiveExtensions_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDAD2DA3B36D7DE94AFDF3A /* Pods_SwiftValidatorsReactiveExtensions_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -28,6 +40,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		130E18DC1E956AE100C64471 /* TextInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputTableViewCell.swift; sourceTree = "<group>"; };
+		130E18DE1E9576CD00C64471 /* ErrorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTableViewCell.swift; sourceTree = "<group>"; };
+		130E18E11E957D5500C64471 /* SumbitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumbitView.swift; sourceTree = "<group>"; };
+		130E18E31E957D7D00C64471 /* SumbitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SumbitView.xib; sourceTree = "<group>"; };
+		130E18E51E9585F100C64471 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		130E18E81E9588FF00C64471 /* Reactive+UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+UIButton.swift"; sourceTree = "<group>"; };
+		130E18EB1E958C8200C64471 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		130E18ED1E958CE400C64471 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		130E18EF1E958DEF00C64471 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		138B730D1E955BF500208805 /* InputViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
+		138B730F1E955DBE00208805 /* FormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
+		138B73131E9567DC00208805 /* HintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintTableViewCell.swift; sourceTree = "<group>"; };
 		4BF9638EAFFD3A6891AE4EA8 /* SwiftValidatorsReactiveExtensions.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftValidatorsReactiveExtensions.podspec; path = ../SwiftValidatorsReactiveExtensions.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SwiftValidatorsReactiveExtensions_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftValidatorsReactiveExtensions_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,6 +93,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		130E18E01E957D4500C64471 /* SumbitView */ = {
+			isa = PBXGroup;
+			children = (
+				130E18E11E957D5500C64471 /* SumbitView.swift */,
+				130E18E31E957D7D00C64471 /* SumbitView.xib */,
+			);
+			path = SumbitView;
+			sourceTree = "<group>";
+		};
+		130E18E71E9588E800C64471 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				130E18E81E9588FF00C64471 /* Reactive+UIButton.swift */,
+				130E18EF1E958DEF00C64471 /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		130E18EA1E958C7000C64471 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				130E18EB1E958C8200C64471 /* HeaderView.swift */,
+				130E18ED1E958CE400C64471 /* HeaderView.xib */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		138B730C1E955BD100208805 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				138B730D1E955BF500208805 /* InputViewModel.swift */,
+				138B730F1E955DBE00208805 /* FormViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		138B73111E9567B100208805 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				130E18EA1E958C7000C64471 /* HeaderView */,
+				130E18E01E957D4500C64471 /* SumbitView */,
+				138B73121E9567C200208805 /* TableViewCells */,
+				130E18E51E9585F100C64471 /* BorderedButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		138B73121E9567C200208805 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				138B73131E9567DC00208805 /* HintTableViewCell.swift */,
+				130E18DC1E956AE100C64471 /* TextInputTableViewCell.swift */,
+				130E18DE1E9576CD00C64471 /* ErrorTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		162696AAD0293AE2D722A554 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +194,9 @@
 		607FACD21AFB9204008FA782 /* Example for SwiftValidatorsReactiveExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				130E18E71E9588E800C64471 /* Extensions */,
+				138B73111E9567B100208805 /* Views */,
+				138B730C1E955BD100208805 /* ViewModels */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -251,7 +335,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				130E18EE1E958CE400C64471 /* HeaderView.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				130E18E41E957D7D00C64471 /* SumbitView.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +449,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				138B730E1E955BF500208805 /* InputViewModel.swift in Sources */,
+				130E18DD1E956AE100C64471 /* TextInputTableViewCell.swift in Sources */,
+				130E18E61E9585F100C64471 /* BorderedButton.swift in Sources */,
+				130E18E21E957D5500C64471 /* SumbitView.swift in Sources */,
+				130E18F01E958DEF00C64471 /* UIImageView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				138B73101E955DBE00208805 /* FormViewModel.swift in Sources */,
+				130E18DF1E9576CD00C64471 /* ErrorTableViewCell.swift in Sources */,
+				130E18EC1E958C8200C64471 /* HeaderView.swift in Sources */,
+				138B73141E9567DC00208805 /* HintTableViewCell.swift in Sources */,
+				130E18E91E9588FF00C64471 /* Reactive+UIButton.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +542,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -486,6 +583,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
