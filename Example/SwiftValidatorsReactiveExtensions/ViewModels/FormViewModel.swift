@@ -103,8 +103,16 @@ public class FormViewModel {
             if let email = self.email.value,
                 let password = self.password.value {
                 
-                return SignalProducer<Credentials, NSError>.init(value: Credentials(email: email,
-                                                                                    password: password))
+                return SignalProducer<Credentials, NSError> { (observer, disposable) in
+                    let credentials = Credentials(email: email,
+                                                  password: password)
+                    
+                    let timeout = DispatchTime.now() + .seconds(5)
+                    DispatchQueue.main.asyncAfter(deadline: timeout, execute: { 
+                        observer.send(value: credentials)
+                        observer.sendCompleted()
+                    })
+                }
             }
             
             return SignalProducer.empty
