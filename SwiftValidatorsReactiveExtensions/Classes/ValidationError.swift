@@ -50,4 +50,7 @@ public enum ValidationError: Error {
     case minLength(Int)
     case regex(String)
     case required
+    case watchEquals(String, String)
+    
+    case custom(Error)
 }

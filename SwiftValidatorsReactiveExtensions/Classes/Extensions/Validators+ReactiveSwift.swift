@@ -590,4 +590,33 @@ public extension Reactive where Base: Validator {
         }
     }
     
+    /**
+     Checks if the seed is equal to the current value of the property
+     
+     - parameter seed:
+     - returns: ReactiveValidator
+     */
+    public static func watchEquals(tag: String, property: Property<String?>, defaultValue: String, nilResponse: Bool = false) -> ReactiveValidator {
+        return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
+            return Validator.equals(property.value ?? defaultValue, nilResponse: nilResponse).apply(value)
+                ? .valid
+                : .invalid(.watchEquals(tag, property.value ?? defaultValue))
+        }
+    }
+    
+    /**
+     Checks if the seed is equal to the current value of the property
+     
+     - parameter seed:
+     - returns: ReactiveValidator
+     */
+    public static func watchEquals(tag: String, property: MutableProperty<String?>, defaultValue: String, nilResponse: Bool = false) -> ReactiveValidator {
+        return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
+            return Validator.equals(property.value ?? defaultValue, nilResponse: nilResponse).apply(value)
+                ? .valid
+                : .invalid(.watchEquals(tag, property.value ?? defaultValue))
+        }
+    }
+    
+    
 }
