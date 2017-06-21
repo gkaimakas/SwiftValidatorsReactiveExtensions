@@ -12,45 +12,45 @@ import SwiftValidators
 
 public enum ValidationError: Error {
     case notSpecified
-    case contains(String)
-    case equals(String)
-    case exactLength(Int)
-    case isASCII
-    case isAfter(String, String)
-    case isAlpha
-    case isAlphanumeric
-    case isBase64
-    case isBefore(String, String)
-    case isBool
-    case isCreditCard
-    case isDate(String)
-    case isEmail
-    case isEmpty
-    case isFQDN(FQDNOptions)
-    case isFalse
-    case isFloat
-    case isHexadecimal
-    case isHexColor
-    case isIP
-    case isIPv4
-    case isIPv6
-    case isISBN(ISBN)
-    case isIn([String])
-    case isInt
-    case isLowercase
-    case isMongoId
-    case isNil
-    case isNumeric
-    case isPhone(Phone)
-    case isPostalCode(PostalCode)
-    case isTrue
-    case isUUID
-    case isUppercase
-    case maxLength(Int)
-    case minLength(Int)
-    case regex(String)
-    case required
+    case contains(String, String)
+    case equals(String, String)
+    case exactLength(String, Int)
+    case isASCII(String)
+    case isAfter(String, String, String)
+    case isAlpha(String)
+    case isAlphanumeric(String)
+    case isBase64(String)
+    case isBefore(String, String, String)
+    case isBool(String)
+    case isCreditCard(String)
+    case isDate(String, String)
+    case isEmail(String)
+    case isEmpty(String)
+    case isFQDN(String, FQDNOptions)
+    case isFalse(String)
+    case isFloat(String)
+    case isHexadecimal(String)
+    case isHexColor(String)
+    case isIP(String)
+    case isIPv4(String)
+    case isIPv6(String)
+    case isISBN(String, ISBN)
+    case isIn(String, [String])
+    case isInt(String)
+    case isLowercase(String)
+    case isMongoId(String)
+    case isNil(String)
+    case isNumeric(String)
+    case isPhone(String, Phone)
+    case isPostalCode(String, PostalCode)
+    case isTrue(String)
+    case isUUID(String)
+    case isUppercase(String)
+    case maxLength(String, Int)
+    case minLength(String, Int)
+    case regex(String, String)
+    case required(String)
     case watchEquals(String, String)
     
-    case custom(Error)
+    case custom(String, Error)
 }

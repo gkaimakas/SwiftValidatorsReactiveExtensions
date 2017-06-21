@@ -40,7 +40,7 @@ public class FormViewModel {
             return ReactiveValidator.combine([
                 Validator.reactive.required(),
                 Validator.reactive.isEmail(),
-                Validator.reactive.minLength(3),
+                Validator.reactive.minLength(3, tag: "1"),
                 Validator.reactive.maxLength(32)
                 ])
                 .apply(value)

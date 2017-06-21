@@ -52,11 +52,14 @@ public extension Reactive where Base: Validator {
      - parameter seed:
      - returns: ReactiveValidator
      */
-    public static func contains(_ string: String, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func contains(_ string: String,
+                                tag: String = "",
+                                nilResponse: Bool = false) -> ReactiveValidator {
+        
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.contains(string, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.contains(string))
+                : .invalid(.contains(tag, string))
         }
     }
     
@@ -66,11 +69,14 @@ public extension Reactive where Base: Validator {
      - parameter seed:
      - returns: ReactiveValidator
      */
-    public static func equals(_ string: String, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func equals(_ string: String,
+                              tag: String = "",
+                              nilResponse: Bool = false) -> ReactiveValidator {
+        
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.equals(string, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.equals(string))
+                : .invalid(.equals(tag, string))
         }
     }
     
@@ -80,11 +86,15 @@ public extension Reactive where Base: Validator {
      - parameter seed:
      - returns: ReactiveValidator
      */
-    public static func equals(_ property: Property<String?>, defaultValue: String, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func equals(_ property: Property<String?>,
+                              defaultValue: String,
+                              tag: String = "",
+                              nilResponse: Bool = false) -> ReactiveValidator {
+        
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.equals(property.value ?? defaultValue, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.equals(property.value ?? defaultValue))
+                : .invalid(.equals(tag, property.value ?? defaultValue))
         }
     }
     
@@ -95,11 +105,14 @@ public extension Reactive where Base: Validator {
      - parameter seed:
      - returns: ReactiveValidator
      */
-    public static func equals(_ property: MutableProperty<String?>, defaultValue: String, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func equals(_ property: MutableProperty<String?>,
+                              defaultValue: String,
+                              tag: String = "",
+                              nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.equals(property.value ?? defaultValue, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.equals(property.value ?? defaultValue))
+                : .invalid(.equals(tag, property.value ?? defaultValue))
         }
     }
     
@@ -110,11 +123,15 @@ public extension Reactive where Base: Validator {
      - parameter seed:
      - returns: ReactiveValidator
      */
-    public static func equals(_ property: ValidatingProperty<String?, ValidationError>, defaultValue: String, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func equals(_ property: ValidatingProperty<String?, ValidationError>,
+                              defaultValue: String,
+                              tag: String = "",
+                              nilResponse: Bool = false) -> ReactiveValidator {
+        
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.equals(property.value ?? defaultValue, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.equals(property.value ?? defaultValue))
+                : .invalid(.equals(tag, property.value ?? defaultValue))
         }
     }
     
@@ -124,11 +141,11 @@ public extension Reactive where Base: Validator {
      - parameter length:
      - returns: ReactiveValidator
      */
-    public static func exactLength(_ length: Int, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func exactLength(_ length: Int, tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.exactLength(length, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.exactLength(length))
+                : .invalid(.exactLength(tag, length))
         }
     }
     
@@ -137,11 +154,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isASCII(nilResponse:Bool = false) -> ReactiveValidator {
+    public static func isASCII(tag: String = "", nilResponse:Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isASCII(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isASCII)
+                : .invalid(.isASCII(tag))
         }
     }
     
@@ -153,11 +170,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isAfter(_ date: String, format: String = "dd/MM/yyyy", nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isAfter(_ date: String, format: String = "dd/MM/yyyy", tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isAfter(date, format: format, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isAfter(date, format))
+                : .invalid(.isAfter(tag, date, format))
         }
     }
     
@@ -166,11 +183,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isAlpha(nilResponse:Bool = false) -> ReactiveValidator {
+    public static func isAlpha(tag: String = "", nilResponse:Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isAlpha(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isAlpha)
+                : .invalid(.isAlpha(tag))
         }
     }
     
@@ -179,11 +196,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isAlphanumeric(nilResponse:Bool = false) -> ReactiveValidator {
+    public static func isAlphanumeric(tag: String = "", nilResponse:Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isAlphanumeric(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isAlphanumeric)
+                : .invalid(.isAlphanumeric(tag))
         }
     }
     
@@ -192,11 +209,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isBase64(nilResponse:Bool = false) -> ReactiveValidator {
+    public static func isBase64(tag: String = "", nilResponse:Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isBase64(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isBase64)
+                : .invalid(.isBase64(tag))
         }
     }
     
@@ -206,11 +223,11 @@ public extension Reactive where Base: Validator {
      - parameter date: A date as a string
      - returns: ReactiveValidator
      */
-    public static func isBefore(_ date: String, format: String = "dd/MM/yyyy", nilResponse:Bool = false) -> ReactiveValidator {
+    public static func isBefore(_ date: String, format: String = "dd/MM/yyyy", tag: String = "", nilResponse:Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isBefore(date, format: format, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isBefore(date, format))
+                : .invalid(.isBefore(tag, date, format))
         }
     }
     
@@ -219,11 +236,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isBool(nilResponse:Bool = false) -> ReactiveValidator {
+    public static func isBool(tag: String = "", nilResponse:Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isBool(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isBool)
+                : .invalid(.isBool(tag))
         }
     }
     
@@ -232,11 +249,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isCreditCard(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isCreditCard(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isCreditCard(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isCreditCard)
+                : .invalid(.isCreditCard(tag))
         }
     }
     
@@ -248,11 +265,14 @@ public extension Reactive where Base: Validator {
      - returns: ReactiveValidator
      
      */
-    public static func isDate(_ format: String = "dd/MM/yyyy", nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isDate(_ format: String = "dd/MM/yyyy",
+                              tag: String = "",
+                              nilResponse: Bool = false) -> ReactiveValidator {
+        
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isDate(format, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isDate(format))
+                : .invalid(.isDate(tag, format))
         }
     }
     
@@ -261,11 +281,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isEmail(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isEmail(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isEmail(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isEmail)
+                : .invalid(.isEmail(tag))
         }
     }
     
@@ -274,11 +294,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isEmpty(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isEmpty(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isEmpty(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isEmpty)
+                : .invalid(.isEmpty(tag))
         }
     }
     
@@ -288,11 +308,11 @@ public extension Reactive where Base: Validator {
      - parameter options: An instance of FDQNOptions
      - returns: ReactiveValidator
      */
-    public static func isFQDN(_ options: FQDNOptions = FQDNOptions.defaultOptions, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isFQDN(_ options: FQDNOptions = FQDNOptions.defaultOptions, tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isFQDN(options, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isFQDN(options))
+                : .invalid(.isFQDN(tag, options))
         }
     }
     
@@ -301,11 +321,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isFalse(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isFalse(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isFalse(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isFalse)
+                : .invalid(.isFalse(tag))
         }
     }
     
@@ -314,11 +334,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isFloat(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isFloat(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isFloat(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isFloat)
+                : .invalid(.isFloat(tag))
         }
     }
     
@@ -327,11 +347,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isHexadecimal(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isHexadecimal(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isHexadecimal(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isHexadecimal)
+                : .invalid(.isHexadecimal(tag))
         }
     }
     
@@ -340,11 +360,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isHexColor(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isHexColor(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isHexColor(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isHexColor)
+                : .invalid(.isHexColor(tag))
         }
     }
     
@@ -353,11 +373,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isIP(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isIP(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isIP(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isIP)
+                : .invalid(.isIP(tag))
         }
     }
     
@@ -366,11 +386,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isIPv4(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isIPv4(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isIPv4(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isIPv4)
+                : .invalid(.isIPv4(tag))
         }
     }
     
@@ -379,11 +399,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isIPv6(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isIPv6(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isIPv6(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isIPv6)
+                : .invalid(.isIPv6(tag))
         }
     }
     
@@ -393,11 +413,11 @@ public extension Reactive where Base: Validator {
      - parameter version: ISBN version "10" or "13"
      - returns: ReactiveValidator
      */
-    public static func isISBN(_ version: ISBN, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isISBN(_ version: ISBN, tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isISBN(version, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isISBN(version))
+                : .invalid(.isISBN(tag, version))
         }
     }
     
@@ -407,11 +427,11 @@ public extension Reactive where Base: Validator {
      - parameter array: An array of strings
      - returns: ReactiveValidator
      */
-    public static func isIn(_ array: Array<String>, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isIn(_ array: Array<String>, tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isIn(array, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isIn(array))
+                : .invalid(.isIn(tag, array))
         }
     }
     /**
@@ -419,11 +439,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isInt(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isInt(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isInt(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isInt)
+                : .invalid(.isInt(tag))
         }
     }
     
@@ -433,11 +453,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isLowercase(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isLowercase(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isLowercase(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isLowercase)
+                : .invalid(.isLowercase(tag))
         }
     }
     
@@ -446,11 +466,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isMongoId(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isMongoId(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isMongoId(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isMongoId)
+                : .invalid(.isMongoId(tag))
         }
     }
     
@@ -460,11 +480,11 @@ public extension Reactive where Base: Validator {
      - returns: ReactiveValidator
      */
     
-    public static func isNil() -> ReactiveValidator {
+    public static func isNil(tag: String = "") -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isNil().apply(value)
                 ? .valid
-                : .invalid(.isNil)
+                : .invalid(.isNil(tag))
         }
     }
     
@@ -473,11 +493,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isNumeric(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isNumeric(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isNumeric(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isNumeric)
+                : .invalid(.isNumeric(tag))
         }
     }
     
@@ -487,11 +507,11 @@ public extension Reactive where Base: Validator {
      - parameter locale: The locale as a String. Available locales are 'zh-CN', 'en-ZA', 'en-AU', 'en-HK', 'pt-PT', 'fr-FR', 'el-GR', 'en-GB', 'en-US', 'en-ZM', 'ru-RU
      - returns: ReactiveValidator
      */
-    public static func isPhone(_ locale: Phone, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isPhone(_ locale: Phone, tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isPhone(locale, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isPhone(locale))
+                : .invalid(.isPhone(tag, locale))
         }
     }
     
@@ -501,11 +521,11 @@ public extension Reactive where Base: Validator {
      - parameter country code:
      - returns ReactiveValidator
      */
-    public static func isPostalCode(_ countryCode: PostalCode, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isPostalCode(_ countryCode: PostalCode, tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isPostalCode(countryCode, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isPostalCode(countryCode))
+                : .invalid(.isPostalCode(tag, countryCode))
         }
     }
     
@@ -514,11 +534,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isTrue(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isTrue(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isTrue(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isTrue)
+                : .invalid(.isTrue(tag))
         }
     }
     
@@ -527,11 +547,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isUUID(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isUUID(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isUUID(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isUUID)
+                : .invalid(.isUUID(tag))
         }
     }
     
@@ -540,11 +560,11 @@ public extension Reactive where Base: Validator {
      
      - returns: ReactiveValidator
      */
-    public static func isUppercase(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func isUppercase(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.isUppercase(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.isUppercase)
+                : .invalid(.isUppercase(tag))
         }
     }
     
@@ -554,11 +574,11 @@ public extension Reactive where Base: Validator {
      - parameter length: The max length
      - returns: ReactiveValidator
      */
-    public static func maxLength(_ length: Int, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func maxLength(_ length: Int, tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.maxLength(length, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.maxLength(length))
+                : .invalid(.maxLength(tag, length))
         }
     }
     
@@ -568,11 +588,11 @@ public extension Reactive where Base: Validator {
      - parameter length: The min length
      - returns: ReactiveValidator
      */
-    public static func minLength(_ length: Int, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func minLength(_ length: Int, tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.minLength(length, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.minLength(length))
+                : .invalid(.minLength(tag, length))
         }
     }
     
@@ -582,11 +602,11 @@ public extension Reactive where Base: Validator {
      - parameter pattern: The regex to check
      - returns: ReactiveValidator
      */
-    public static func regex(_ pattern: String, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func regex(_ pattern: String, tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.regex(pattern, nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.regex(pattern))
+                : .invalid(.regex(tag, pattern))
         }
     }
     
@@ -597,11 +617,11 @@ public extension Reactive where Base: Validator {
      - returns: ReactiveValidator
      */
     
-    public static func required(nilResponse: Bool = false) -> ReactiveValidator {
+    public static func required(tag: String = "", nilResponse: Bool = false) -> ReactiveValidator {
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.required(nilResponse: nilResponse).apply(value)
                 ? .valid
-                : .invalid(.required)
+                : .invalid(.required(tag))
         }
     }
     
@@ -611,7 +631,11 @@ public extension Reactive where Base: Validator {
      - parameter seed:
      - returns: ReactiveValidator
      */
-    public static func watchEquals(tag: String, property: Property<String?>, defaultValue: String, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func watchEquals(property: Property<String?>,
+                                   defaultValue: String,
+                                   tag: String = "",
+                                   nilResponse: Bool = false) -> ReactiveValidator {
+        
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.equals(property.value ?? defaultValue, nilResponse: nilResponse).apply(value)
                 ? .valid
@@ -625,9 +649,10 @@ public extension Reactive where Base: Validator {
      - parameter seed:
      - returns: ReactiveValidator
      */
-    public static func watchEquals(tag: String,
-                                   property: MutableProperty<String?>,
-                                   defaultValue: String, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func watchEquals(property: MutableProperty<String?>,
+                                   defaultValue: String,
+                                   tag: String = "",
+                                   nilResponse: Bool = false) -> ReactiveValidator {
         
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.equals(property.value ?? defaultValue, nilResponse: nilResponse).apply(value)
@@ -642,9 +667,9 @@ public extension Reactive where Base: Validator {
      - parameter seed:
      - returns: ReactiveValidator
      */
-    public static func watchEquals(tag: String,
-                                   property: ValidatingProperty<String?, ValidationError>,
+    public static func watchEquals(property: ValidatingProperty<String?, ValidationError>,
                                    defaultValue: String,
+                                   tag: String = "",
                                    nilResponse: Bool = false) -> ReactiveValidator {
         
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
