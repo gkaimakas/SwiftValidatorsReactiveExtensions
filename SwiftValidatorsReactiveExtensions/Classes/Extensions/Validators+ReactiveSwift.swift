@@ -88,6 +88,21 @@ public extension Reactive where Base: Validator {
         }
     }
     
+    
+    /**
+     Checks if the seed is equal to the current value of the mutable property
+     
+     - parameter seed:
+     - returns: ReactiveValidator
+     */
+    public static func equals(_ property: MutableProperty<String?>, defaultValue: String, nilResponse: Bool = false) -> ReactiveValidator {
+        return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
+            return Validator.equals(property.value ?? defaultValue, nilResponse: nilResponse).apply(value)
+                ? .valid
+                : .invalid(.equals(property.value ?? defaultValue))
+        }
+    }
+    
     /**
      Checks if it has the exact length
      
