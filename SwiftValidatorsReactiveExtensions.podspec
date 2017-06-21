@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftValidatorsReactiveExtensions'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'SwiftValidators that play nice with ReactiveSwift\'s ValidatingProperty'
 
   s.description      = <<-DESC
