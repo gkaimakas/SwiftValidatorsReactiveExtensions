@@ -103,6 +103,21 @@ public extension Reactive where Base: Validator {
         }
     }
     
+    
+    /**
+     Checks if the seed is equal to the current value of the mutable property
+     
+     - parameter seed:
+     - returns: ReactiveValidator
+     */
+    public static func equals(_ property: ValidatingProperty<String?, ValidationError>, defaultValue: String, nilResponse: Bool = false) -> ReactiveValidator {
+        return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
+            return Validator.equals(property.value ?? defaultValue, nilResponse: nilResponse).apply(value)
+                ? .valid
+                : .invalid(.equals(property.value ?? defaultValue))
+        }
+    }
+    
     /**
      Checks if it has the exact length
      
@@ -605,12 +620,33 @@ public extension Reactive where Base: Validator {
     }
     
     /**
-     Checks if the seed is equal to the current value of the property
+     Checks if the seed is equal to the current value of the mutable property
      
      - parameter seed:
      - returns: ReactiveValidator
      */
-    public static func watchEquals(tag: String, property: MutableProperty<String?>, defaultValue: String, nilResponse: Bool = false) -> ReactiveValidator {
+    public static func watchEquals(tag: String,
+                                   property: MutableProperty<String?>,
+                                   defaultValue: String, nilResponse: Bool = false) -> ReactiveValidator {
+        
+        return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
+            return Validator.equals(property.value ?? defaultValue, nilResponse: nilResponse).apply(value)
+                ? .valid
+                : .invalid(.watchEquals(tag, property.value ?? defaultValue))
+        }
+    }
+    
+    /**
+     Checks if the seed is equal to the current value of the validating property
+     
+     - parameter seed:
+     - returns: ReactiveValidator
+     */
+    public static func watchEquals(tag: String,
+                                   property: ValidatingProperty<String?, ValidationError>,
+                                   defaultValue: String,
+                                   nilResponse: Bool = false) -> ReactiveValidator {
+        
         return ReactiveValidator { (value: StringConvertible?) -> ValidatorOutput<StringConvertible?, ValidationError> in
             return Validator.equals(property.value ?? defaultValue, nilResponse: nilResponse).apply(value)
                 ? .valid
