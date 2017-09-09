@@ -11,8 +11,8 @@ import ReactiveSwift
 import Result
 import SwiftValidators
 
-public extension ValidatorOutput where Value == Optional<StringConvertible>, Error == ValidationError {
-    func map<T: StringConvertible>(_ transform: (Value) -> T?) -> ValidatorOutput<T?, Error> {
+public extension ValidatingProperty.Decision where Value == Optional<StringConvertible> {
+    func map<T: StringConvertible>(_ transform: (Value) -> T?) -> ValidatingProperty<T?, ValidationError>.Decision {
         switch self {
         case .valid:
             return .valid

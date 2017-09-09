@@ -35,7 +35,7 @@ public class FormViewModel {
     public let isValid: Property<Bool>
     
     public init() {
-        email = ValidatingProperty<String?, ValidationError>(nil, { (value: String?) -> ValidatorOutput<String?, ValidationError> in
+        email = ValidatingProperty<String?, ValidationError>(nil, { (value: String?) -> ValidatingProperty<String?, ValidationError>.Decision in
             
             return ReactiveValidator.combine([
                 Validator.reactive.required(),
@@ -47,7 +47,7 @@ public class FormViewModel {
                 .map { $0 as? String }
         })
         
-        password = ValidatingProperty<String?, ValidationError>(nil, { (value: String?) -> ValidatorOutput<String?, ValidationError> in
+        password = ValidatingProperty<String?, ValidationError>(nil, { (value: String?) -> ValidatingProperty<String?, ValidationError>.Decision in
             
             return ReactiveValidator.combine([
                 Validator.reactive.required(),
@@ -58,7 +58,7 @@ public class FormViewModel {
                 .map { $0 as? String }
         })
         
-        acceptTerms = ValidatingProperty<String?, ValidationError>(nil, { (value: String?) -> ValidatorOutput<String?, ValidationError> in
+        acceptTerms = ValidatingProperty<String?, ValidationError>(nil, { (value: String?) -> ValidatingProperty<String?, ValidationError>.Decision in
             
             return ReactiveValidator.combine([
                 Validator.reactive.required(),
@@ -69,7 +69,7 @@ public class FormViewModel {
                 .map { $0 as? String }
         })
         
-        let isEmailValid: Property<Bool> = email.result.map { (result: ValidationResult<String?, ValidationError>) -> Bool in
+        let isEmailValid: Property<Bool> = email.result.map { result -> Bool in
             switch result {
             case .valid(_) :
                 return true
@@ -78,7 +78,7 @@ public class FormViewModel {
             }
         }
         
-        let isPasswordValid: Property<Bool> = password.result.map { (result: ValidationResult<String?, ValidationError>) -> Bool in
+        let isPasswordValid: Property<Bool> = password.result.map { result -> Bool in
             switch result {
             case .valid(_) :
                 return true

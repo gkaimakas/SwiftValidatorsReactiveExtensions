@@ -27,7 +27,7 @@ public class InputViewModel {
             .result
             .producer
             .skip(first: 1)
-            .map { (result: ValidationResult<String?, ValidationError>) -> Bool in
+            .map { result -> Bool in
                 switch result {
                 case .valid(_):
                     return false
@@ -45,7 +45,7 @@ public class InputViewModel {
         
         self.hasErrors = validatingProperty
             .result
-            .map { (result: ValidationResult<String?, ValidationError>) -> Bool in
+            .map { result -> Bool in
                 switch result {
                 case .valid(_):
                     return false

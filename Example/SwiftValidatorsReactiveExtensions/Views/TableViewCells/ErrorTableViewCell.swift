@@ -29,7 +29,7 @@ public class ErrorTableViewCell: UITableViewCell {
                 .producer
                 .take(during: reactive.lifetime)
                 .take(until: reactive.prepareForReuse)
-                .map({ (result: ValidationResult<String?, ValidationError>) -> String? in
+                .map({ result -> String? in
                     switch result {
                     case .invalid(_, let error):
                         return "\(error)"
