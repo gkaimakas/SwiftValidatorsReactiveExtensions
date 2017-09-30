@@ -35,8 +35,6 @@ public func + (lhs: ValidatingProperty<StringConvertible?, ValidationError>.Deci
         return .coerced(valueA, errorA)
     case (.coerced(_, _), .invalid(let errorB)):
         return .invalid(errorB)
-    default:
-        return .invalid(.notSpecified)
     }
 }
 
