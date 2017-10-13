@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftValidatorsReactiveExtensions'
-  s.version          = '4.0.0'
+  s.version          = '4.1.0-alpha.2'
   s.summary          = 'SwiftValidators that play nice with ReactiveSwift\'s ValidatingProperty'
 
   s.description      = <<-DESC
@@ -25,6 +25,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'SwiftValidatorsReactiveExtensions/Classes/**/*'
 
-    s.dependency 'SwiftValidators', '~> 6.0.0'
-    s.dependency 'ReactiveSwift', '~> 2.0.0'
+    s.dependency 'SwiftValidators', '~> 7.0.0'
+    s.dependency 'ReactiveSwift', '2.1.0-alpha.2'
 end
