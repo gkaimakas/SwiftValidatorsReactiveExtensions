@@ -6,7 +6,6 @@
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 
-import ChameleonFramework
 import Foundation
 import ReactiveCocoa
 import ReactiveSwift
@@ -25,26 +24,6 @@ public class HeaderView: UIView {
             guard let viewModel = viewModel else {
                 return
             }
-            
-            leftImageView.reactive.backgroundColor <~ viewModel
-                .emailInput
-                .hasErrors
-                .producer
-                .skip(first: 1)
-                .take(during: reactive.lifetime)
-                .map({ (value: Bool) -> UIColor in
-                    return value ? UIColor(hexString: "#673AB7")! : UIColor(hexString: "#E91E63")!
-                })
-            
-            rightImageView.reactive.backgroundColor <~ viewModel
-                .passwordInput
-                .hasErrors
-                .producer
-                .skip(first: 1)
-                .take(during: reactive.lifetime)
-                .map({ (value: Bool) -> UIColor in
-                    return value ? UIColor(hexString: "#607D8B")! : UIColor(hexString: "#FF9800")!
-                })
         }
     }
     

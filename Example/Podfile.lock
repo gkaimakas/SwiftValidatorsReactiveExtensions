@@ -1,0 +1,45 @@
+PODS:
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+  - ReactiveCocoa (8.0.2):
+    - ReactiveSwift (~> 4.0)
+  - ReactiveSwift (4.0.0):
+    - Result (~> 4.0)
+  - Result (4.1.0)
+  - SwiftValidators (8.0.0)
+  - SwiftValidatorsReactiveExtensions (8.0):
+    - ReactiveSwift (~> 4.0)
+    - SwiftValidators (~> 8.0)
+
+DEPENDENCIES:
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
+  - ReactiveCocoa
+  - ReactiveSwift
+  - SwiftValidatorsReactiveExtensions (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - Quick
+    - ReactiveCocoa
+    - ReactiveSwift
+    - Result
+    - SwiftValidators
+
+EXTERNAL SOURCES:
+  SwiftValidatorsReactiveExtensions:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  ReactiveCocoa: fbd26e9ba60e98417ee47433e59465a98ed9da0f
+  ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SwiftValidators: 282173fae9e2fee864212b0128fcb25a81d53fba
+  SwiftValidatorsReactiveExtensions: 1e2f11d814504ef82337585dbf16b56e6b1e77d5
+
+PODFILE CHECKSUM: 2f9373d270ae02622fa1c736fa94097545942028
+
+COCOAPODS: 1.5.3

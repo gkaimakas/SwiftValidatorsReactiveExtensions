@@ -6,7 +6,6 @@
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 
-import ChameleonFramework
 import Foundation
 import ReactiveCocoa
 import ReactiveSwift
@@ -27,11 +26,11 @@ public class SumbitView: UIView {
             button.reactive.backgroundColor <~ action.isEnabled
                 .producer
                 .map({ (enabled: Bool) -> UIColor in
-                    return enabled ? UIColor(hexString: "#607D8B")! : UIColor.white
+                    return enabled ? UIColor.lightGray : UIColor.white
                 })
             
-            button.setTitleColor(UIColor.white, for: .normal)
-            button.setTitleColor(UIColor(hexString: "#607D8B"), for: .disabled)
+            button.setTitleColor(.white, for: .normal)
+            button.setTitleColor(.white, for: .disabled)
             
         }
     }
