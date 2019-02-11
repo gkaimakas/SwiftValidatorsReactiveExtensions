@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     let viewModel = FormViewModel()
     
-    var inputs: [InputViewModel] = []
+    var inputs: [FieldViewModel] = []
     var submitView: SumbitView!
     var headerView: HeaderView!
     
@@ -27,11 +27,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         inputs = [
-            viewModel.emailInput,
-            viewModel.passwordInput
+            viewModel.emailField,
+            viewModel.passwordField
         ]
         
-        inputs.enumerated().forEach { (offset: Int, element: InputViewModel) in
+        inputs.enumerated().forEach { (offset: Int, element: FieldViewModel) in
             element.hasErrors
                 .producer
                 .startWithValues({ (value: Bool) in

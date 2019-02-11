@@ -16,7 +16,8 @@
 		130E18EC1E958C8200C64471 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E18EB1E958C8200C64471 /* HeaderView.swift */; };
 		130E18EE1E958CE400C64471 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 130E18ED1E958CE400C64471 /* HeaderView.xib */; };
 		130E18F01E958DEF00C64471 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E18EF1E958DEF00C64471 /* UIImageView.swift */; };
-		138B730E1E955BF500208805 /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B730D1E955BF500208805 /* InputViewModel.swift */; };
+		136BAD682211DF6500FF0E9E /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136BAD672211DF6500FF0E9E /* Credentials.swift */; };
+		138B730E1E955BF500208805 /* FieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B730D1E955BF500208805 /* FieldViewModel.swift */; };
 		138B73101E955DBE00208805 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B730F1E955DBE00208805 /* FormViewModel.swift */; };
 		138B73141E9567DC00208805 /* HintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B73131E9567DC00208805 /* HintTableViewCell.swift */; };
 		1A2630D31F1A48F37C1BA35A /* Pods_SwiftValidatorsReactiveExtensions_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 780237C6A9662FFDE029513A /* Pods_SwiftValidatorsReactiveExtensions_Tests.framework */; };
@@ -49,7 +50,8 @@
 		130E18EB1E958C8200C64471 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		130E18ED1E958CE400C64471 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		130E18EF1E958DEF00C64471 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		138B730D1E955BF500208805 /* InputViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
+		136BAD672211DF6500FF0E9E /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		138B730D1E955BF500208805 /* FieldViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldViewModel.swift; sourceTree = "<group>"; };
 		138B730F1E955DBE00208805 /* FormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
 		138B73131E9567DC00208805 /* HintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintTableViewCell.swift; sourceTree = "<group>"; };
 		4BF9638EAFFD3A6891AE4EA8 /* SwiftValidatorsReactiveExtensions.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftValidatorsReactiveExtensions.podspec; path = ../SwiftValidatorsReactiveExtensions.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -120,10 +122,18 @@
 			path = HeaderView;
 			sourceTree = "<group>";
 		};
+		136BAD662211DF5A00FF0E9E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				136BAD672211DF6500FF0E9E /* Credentials.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		138B730C1E955BD100208805 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				138B730D1E955BF500208805 /* InputViewModel.swift */,
+				138B730D1E955BF500208805 /* FieldViewModel.swift */,
 				138B730F1E955DBE00208805 /* FormViewModel.swift */,
 			);
 			path = ViewModels;
@@ -194,6 +204,7 @@
 		607FACD21AFB9204008FA782 /* Example for SwiftValidatorsReactiveExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				136BAD662211DF5A00FF0E9E /* Models */,
 				130E18E71E9588E800C64471 /* Extensions */,
 				138B73111E9567B100208805 /* Views */,
 				138B730C1E955BD100208805 /* ViewModels */,
@@ -439,10 +450,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				138B730E1E955BF500208805 /* InputViewModel.swift in Sources */,
+				138B730E1E955BF500208805 /* FieldViewModel.swift in Sources */,
 				130E18DD1E956AE100C64471 /* TextInputTableViewCell.swift in Sources */,
 				130E18E61E9585F100C64471 /* BorderedButton.swift in Sources */,
 				130E18E21E957D5500C64471 /* SumbitView.swift in Sources */,
+				136BAD682211DF6500FF0E9E /* Credentials.swift in Sources */,
 				130E18F01E958DEF00C64471 /* UIImageView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				138B73101E955DBE00208805 /* FormViewModel.swift in Sources */,

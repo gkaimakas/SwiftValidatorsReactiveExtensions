@@ -12,7 +12,7 @@ import Result
 import SwiftValidators
 import SwiftValidatorsReactiveExtensions
 
-public class InputViewModel {
+public class FieldViewModel {
     public let id: Property<Int>
     public let hint: Property<String?>
     public let validatingProperty: ValidatingProperty<String?, ValidationError>
