@@ -15,7 +15,7 @@ import UIKit
 public class SumbitView: UIView {
     @IBOutlet weak var button: UIButton!
     
-    public var credentialsAction: Action<Void, FormViewModel.Credentials, NSError>? {
+    public var credentialsAction: Action<Void, Credentials, NSError>? {
         didSet {
             guard let action = credentialsAction else {
                 return

@@ -1,18 +1,20 @@
 use_frameworks!
 
-platform :ios, '10.0'
+platform :ios, '11.0'
 
 target 'SwiftValidatorsReactiveExtensions_Example' do
 
-  pod 'SwiftValidatorsReactiveExtensions', :path => '../'
-  pod 'ReactiveCocoa'
-  pod 'ReactiveSwift'
+    pod 'MagazineLayout'
+    pod 'ReactiveCocoa'
+    pod 'ReactiveSwift'
+    pod 'SnapKit'
+    pod 'SwiftValidatorsReactiveExtensions', :path => '../'
 
-  target 'SwiftValidatorsReactiveExtensions_Tests' do
-    inherit! :search_paths
-    pod 'Quick', '~> 1.2.0'
-		pod 'Nimble', '~> 7.0.2'
-  end
+    target 'SwiftValidatorsReactiveExtensions_Tests' do
+        inherit! :search_paths
+        pod 'Quick'
+        pod 'Nimble'
+    end
 end
 
 post_install do |installer|

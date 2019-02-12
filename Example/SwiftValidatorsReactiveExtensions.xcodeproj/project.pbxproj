@@ -17,6 +17,8 @@
 		130E18EE1E958CE400C64471 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 130E18ED1E958CE400C64471 /* HeaderView.xib */; };
 		130E18F01E958DEF00C64471 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E18EF1E958DEF00C64471 /* UIImageView.swift */; };
 		136BAD682211DF6500FF0E9E /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136BAD672211DF6500FF0E9E /* Credentials.swift */; };
+		136BAD6B2212AD9300FF0E9E /* TextFieldCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136BAD6A2212AD9300FF0E9E /* TextFieldCollectionViewCell.swift */; };
+		136BAD6D2212AF5800FF0E9E /* ShippingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136BAD6C2212AF5800FF0E9E /* ShippingFormViewController.swift */; };
 		138B730E1E955BF500208805 /* FieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B730D1E955BF500208805 /* FieldViewModel.swift */; };
 		138B73101E955DBE00208805 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B730F1E955DBE00208805 /* FormViewModel.swift */; };
 		138B73141E9567DC00208805 /* HintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B73131E9567DC00208805 /* HintTableViewCell.swift */; };
@@ -51,6 +53,8 @@
 		130E18ED1E958CE400C64471 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		130E18EF1E958DEF00C64471 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		136BAD672211DF6500FF0E9E /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		136BAD6A2212AD9300FF0E9E /* TextFieldCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionViewCell.swift; sourceTree = "<group>"; };
+		136BAD6C2212AF5800FF0E9E /* ShippingFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingFormViewController.swift; sourceTree = "<group>"; };
 		138B730D1E955BF500208805 /* FieldViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldViewModel.swift; sourceTree = "<group>"; };
 		138B730F1E955DBE00208805 /* FormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
 		138B73131E9567DC00208805 /* HintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintTableViewCell.swift; sourceTree = "<group>"; };
@@ -130,6 +134,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		136BAD692212AD7800FF0E9E /* TextFieldCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				136BAD6A2212AD9300FF0E9E /* TextFieldCollectionViewCell.swift */,
+			);
+			path = TextFieldCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		138B730C1E955BD100208805 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +154,7 @@
 		138B73111E9567B100208805 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				136BAD692212AD7800FF0E9E /* TextFieldCollectionViewCell */,
 				130E18EA1E958C7000C64471 /* HeaderView */,
 				130E18E01E957D4500C64471 /* SumbitView */,
 				138B73121E9567C200208805 /* TableViewCells */,
@@ -214,6 +227,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				136BAD6C2212AF5800FF0E9E /* ShippingFormViewController.swift */,
 			);
 			name = "Example for SwiftValidatorsReactiveExtensions";
 			path = SwiftValidatorsReactiveExtensions;
@@ -403,7 +417,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftValidatorsReactiveExtensions_Tests/Pods-SwiftValidatorsReactiveExtensions_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftValidatorsReactiveExtensions_Tests/Pods-SwiftValidatorsReactiveExtensions_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
@@ -414,7 +428,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftValidatorsReactiveExtensions_Tests/Pods-SwiftValidatorsReactiveExtensions_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftValidatorsReactiveExtensions_Tests/Pods-SwiftValidatorsReactiveExtensions_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AA5B1A48E8146B4890C7D4D4 /* [CP] Embed Pods Frameworks */ = {
@@ -423,24 +437,28 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftValidatorsReactiveExtensions_Example/Pods-SwiftValidatorsReactiveExtensions_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftValidatorsReactiveExtensions_Example/Pods-SwiftValidatorsReactiveExtensions_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MagazineLayout/MagazineLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftValidators/SwiftValidators.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftValidatorsReactiveExtensions/SwiftValidatorsReactiveExtensions.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagazineLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidatorsReactiveExtensions.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftValidatorsReactiveExtensions_Example/Pods-SwiftValidatorsReactiveExtensions_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftValidatorsReactiveExtensions_Example/Pods-SwiftValidatorsReactiveExtensions_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -458,7 +476,9 @@
 				130E18F01E958DEF00C64471 /* UIImageView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				138B73101E955DBE00208805 /* FormViewModel.swift in Sources */,
+				136BAD6B2212AD9300FF0E9E /* TextFieldCollectionViewCell.swift in Sources */,
 				130E18DF1E9576CD00C64471 /* ErrorTableViewCell.swift in Sources */,
+				136BAD6D2212AF5800FF0E9E /* ShippingFormViewController.swift in Sources */,
 				130E18EC1E958C8200C64471 /* HeaderView.swift in Sources */,
 				138B73141E9567DC00208805 /* HintTableViewCell.swift in Sources */,
 				130E18E91E9588FF00C64471 /* Reactive+UIButton.swift in Sources */,
@@ -543,7 +563,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -584,7 +604,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -600,7 +620,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 96LJ93WQBU;
 				INFOPLIST_FILE = SwiftValidatorsReactiveExtensions/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gkaimakas.demo.SwiftValidatorsReactiveExtensions-Example";
@@ -617,7 +637,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 96LJ93WQBU;
 				INFOPLIST_FILE = SwiftValidatorsReactiveExtensions/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gkaimakas.demo.SwiftValidatorsReactiveExtensions-Example";
